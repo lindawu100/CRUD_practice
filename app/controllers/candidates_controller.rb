@@ -16,6 +16,7 @@ class CandidatesController < ApplicationController
         end
     end
     def show
+        @candidate = Candidate.find_by(id: params[:id])
     end
     private
     def candidate_params
