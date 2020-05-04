@@ -35,6 +35,21 @@ class CandidatesController < ApplicationController
         end
     end
 
+    def destroy
+        @candidate = Candidate.find_by(id: params[:id])
+        @candidate.destroy
+        flash[:notice] = "Candidate deleted!"
+        redirect_to '/candidates'
+    end
+
+    def vote
+        @candidate = Candidate.find_by(id: params[:id])
+        @candidate.increment(:votes)
+        @candidate.save
+        flash[:notice] = "Voted!"
+        redirect_to '/candidates'
+    end
+
     private
     def candidate_params
         params.require(:candidate).permit(:name, :party, :age, :politice)
