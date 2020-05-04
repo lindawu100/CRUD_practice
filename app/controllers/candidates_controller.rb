@@ -15,9 +15,15 @@ class CandidatesController < ApplicationController
             render :new
         end
     end
+
     def show
         @candidate = Candidate.find_by(id: params[:id])
     end
+
+    def edit
+        @candidate = Candidate.find_by(id: params[:id])
+    end
+    
     private
     def candidate_params
         params.require(:candidate).permit(:name, :party, :age, :politice)

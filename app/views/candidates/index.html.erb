@@ -15,7 +15,7 @@
         <td><%= candidate.party %></td>
         <td><%= candidate.age %></td>
         <td><%= candidate.politice %></td>
-        <td>Action</td>
+        <td><%= link_to 'update', edit_candidate_path(candidate) %></td>
     </tr>
     <% end %>
 </table>
